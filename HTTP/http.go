@@ -12,5 +12,10 @@ func main() {
 		fmt.Println("Error:", err)
 		os.Exit(1)
 	}
+
+	bs := make([]byte, 99999) // 99kb
+	resp.Body.Read(bs)
+	fmt.Println(string(bs))
+
 	defer resp.Body.Close()
 }
