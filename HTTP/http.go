@@ -16,7 +16,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	io.Copy(os.Stdout, resp.Body)
+	// io.Copy(os.Stdout, resp.Body)
+
+	lw := logWriter{}
+	io.Copy(lw, resp.Body)
 
 	defer resp.Body.Close()
 }
